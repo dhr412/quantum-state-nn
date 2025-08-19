@@ -26,7 +26,7 @@ jobs:
     - name: Convert notebook to HTML
       run: |
         mkdir -p docs
-        jupyter nbconvert --to html src/qubit_state_nn.ipynb --output-dir docs --output index.html
+        jupyter nbconvert --to html --template classic src/qubit_state_nn.ipynb --output-dir docs --output index.html
 
     - name: Commit HTML output
       run: |
