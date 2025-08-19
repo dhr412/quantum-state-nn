@@ -1,4 +1,4 @@
-# Neural Network–Based Quantum State Tomography (PoC)
+# Neural Network Based Quantum State Tomography (PoC)
 
 This repository is a proof-of-concept exploring whether neural networks can be used to perform quantum state tomography (QST) more efficiently and accurately than classical reconstruction algorithms. Quantum state tomography is the process of reconstructing an unknown quantum state from measurement data, which is crucial in validating quantum devices and algorithms.  
 
