@@ -21,7 +21,7 @@ jobs:
 
     - name: Install Jupyter
       run: |
-        pip install nbconvert jupyter
+        pip install nbconvert jupyter ipywidgets widgetsnbextension
 
     - name: Convert notebook to HTML
       run: |
