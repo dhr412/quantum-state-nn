@@ -24,8 +24,8 @@ jobs:
         pip install nbconvert jupyter ipywidgets widgetsnbextension
 
     - name: Install jq
-        run:|
-          sudo apt update && sudo apt install -y jq
+      run: |
+        sudo apt update && sudo apt install -y jq
 
     - name: Convert notebook to HTML
       run: |
