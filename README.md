@@ -1,6 +1,6 @@
 # Neural Network Based Quantum State Tomography (PoC)
 
-This repository is a proof-of-concept exploring whether neural networks can be used to perform quantum state tomography (QST) more efficiently and accurately than classical reconstruction algorithms. Quantum state tomography is the process of reconstructing an unknown quantum state from measurement data, which is crucial in validating quantum devices and algorithms.  
+This repository is a proof-of-concept exploring if neural networks can be used to perform quantum state tomography more efficiently and accurately than classical reconstruction algorithms. Quantum state tomography is the process of reconstructing an unknown quantum state from measurement data, which is crucial in validating quantum devices and algorithms.  
 
 The project implements a full pipeline — synthetic quantum data generation, neural network training, and benchmarking against classical tomography methods — to study **fidelity, error rates, and execution time**.
 
@@ -11,9 +11,9 @@ The project implements a full pipeline — synthetic quantum data generation, ne
 - Generates synthetic quantum measurement data for an arbitrary number of qubits.
 - Trains a deep neural network to predict complex amplitudes of quantum states.
 - Implements and compares classical QST methods:
-  - Least Squares (LS)
-  - Maximum Likelihood Estimation (MLE)
-  - Linear Inversion (LI)
+  - Least Squares
+  - Maximum Likelihood Estimation
+  - Linear Inversion
 - Benchmarks NN vs. classical approaches in terms of:
   - **Fidelity**
   - **Amplitude & phase errors**
@@ -61,9 +61,9 @@ Measurements → Dense Layers → (Real, Imag) Amplitudes → Normalization → 
 
 ### 3. Classical Tomography Methods
 
-- **Least Squares (LS)**: solves linear inversion problem.
-- **Maximum Likelihood Estimation (MLE)**: iteratively projects onto valid density matrices.
-- **Linear Inversion (LI)**: reconstructs using Pauli basis expansion.
+- **Least Squares**: solves linear inversion problem.
+- **Maximum Likelihood Estimation**: iteratively projects onto valid density matrices.
+- **Linear Inversion**: reconstructs using Pauli basis expansion.
 
 ### 4. Evaluation
 
