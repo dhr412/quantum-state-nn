@@ -1,0 +1,37 @@
+name: Deploy to Pages
+
+on:
+  push:
+    paths:
+      - 'src/**/*.ipynb'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+
+    - name: Install Jupyter
+      run: |
+        pip install nbconvert jupyter
+
+    - name: Convert notebook to HTML
+      run: |
+        mkdir -p docs
+        jupyter nbconvert --to html src/qubit_state_nn.ipynb --output-dir docs --output index.html
+
+    - name: Commit HTML output
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add docs/index.html
+        git commit -m "Update notebook html"
+        git push
