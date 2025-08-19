@@ -1,12 +1,13 @@
 # Neural Network–Based Quantum State Tomography (PoC)
 
-This repository is a **proof-of-concept (PoC)** exploring whether **neural networks** can be used to perform **quantum state tomography (QST)** more efficiently and accurately than classical reconstruction algorithms. Quantum state tomography is the process of reconstructing an unknown quantum state from measurement data, which is crucial in validating quantum devices and algorithms.  
+This repository is a proof-of-concept exploring whether neural networks can be used to perform quantum state tomography (QST) more efficiently and accurately than classical reconstruction algorithms. Quantum state tomography is the process of reconstructing an unknown quantum state from measurement data, which is crucial in validating quantum devices and algorithms.  
 
 The project implements a full pipeline — synthetic quantum data generation, neural network training, and benchmarking against classical tomography methods — to study **fidelity, error rates, and execution time**.
 
 ---
 
 ## What This Project Does
+
 - Generates synthetic quantum measurement data for an arbitrary number of qubits.
 - Trains a deep neural network to predict complex amplitudes of quantum states.
 - Implements and compares classical QST methods:
@@ -22,8 +23,10 @@ The project implements a full pipeline — synthetic quantum data generation, ne
 ---
 
 ## Why This?
+
 Quantum state tomography is traditionally expensive and scales poorly with the number of qubits. This PoC investigates whether **machine learning can offer a viable alternative** by:
-- Reducing computational cost,
+
+- Reducing computational cost
 - Handling noisy measurement data more robustly,
 - Matching or outperforming classical fidelity.
 
@@ -32,14 +35,18 @@ Quantum state tomography is traditionally expensive and scales poorly with the n
 ## How It Works
 
 ### 1. Data Generation
+
 A `QuantumDataGenerator` class:
+
 - Creates random pure states,
 - Applies measurement settings in Pauli bases (`X`, `Y`, `Z`),
 - Adds realistic **shot noise** and Gaussian noise,
 - Outputs features (measurement probabilities) and labels (true state amplitudes).
 
 ### 2. Neural Network Model
+
 The **QuantumStateNN** is a feed-forward neural network with:
+
 - Input: concatenated measurement probabilities,
 - Hidden layers: [1024, 512, 256] with SiLU activations and dropout,
 - Output: real + imaginary amplitudes of the quantum state,
@@ -53,11 +60,13 @@ Measurements → Dense Layers → (Real, Imag) Amplitudes → Normalization → 
 ````
 
 ### 3. Classical Tomography Methods
+
 - **Least Squares (LS)**: solves linear inversion problem.
 - **Maximum Likelihood Estimation (MLE)**: iteratively projects onto valid density matrices.
 - **Linear Inversion (LI)**: reconstructs using Pauli basis expansion.
 
 ### 4. Evaluation
+
 - Fidelity, amplitude error, phase error, MSE
 - Runtime performance (samples/sec)
 - Statistical significance testing (paired t-tests)
@@ -85,6 +94,7 @@ Measurements → Dense Layers → (Real, Imag) Amplitudes → Normalization → 
 ---
 
 ### Summary
+
 - **Best Fidelity:** Neural Network (0.9570)  
 - **Fastest Method:** Neural Network (0.003s)  
 - **NN vs Classical (LS):** **8.14× fidelity improvement**  
