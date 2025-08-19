@@ -23,10 +23,16 @@ jobs:
       run: |
         pip install nbconvert jupyter ipywidgets widgetsnbextension
 
+    - name: Install jq
+        run:|
+          sudo apt update && sudo apt install -y jq
+
     - name: Convert notebook to HTML
       run: |
         mkdir -p docs
-        jupyter nbconvert --to html --template classic src/qubit_state_nn.ipynb --output-dir docs --output index.html
+        cp src/qubit_state_nn.ipynb temp.ipynb
+        jq 'del(.metadata.widgets)' temp.ipynb > cleaned.ipynb
+        jupyter nbconvert --to html --template classic cleaned.ipynb --output-dir docs --output index.html
 
     - name: Commit HTML output
       run: |
