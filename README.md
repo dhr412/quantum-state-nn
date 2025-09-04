@@ -2,7 +2,7 @@
 
 This repository is a proof-of-concept exploring if neural networks can be used to perform quantum state tomography more efficiently and accurately than classical reconstruction algorithms. Quantum state tomography is the process of reconstructing an unknown quantum state from measurement data, which is crucial in validating quantum devices and algorithms.  
 
-The project implements a full pipeline — synthetic quantum data generation, neural network training, and benchmarking against classical tomography methods — to study **fidelity, error rates, and execution time**.
+The project implements a full pipeline synthetic quantum data generation, neural network training, and benchmarking against classical tomography methods to study **fidelity, error rates, and execution time**.
 
 ---
 
